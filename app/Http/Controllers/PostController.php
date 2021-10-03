@@ -12,8 +12,14 @@ class PostController extends Controller {
             ->with(['user', 'likes'])
             ->paginate(20);
 
-        return view('posts.index',[
+        return view('posts.index', [
             'posts' => $posts
+        ]);
+    }
+
+    public function show(Post $post) {
+        return view('posts.show', [
+            'post' => $post
         ]);
     }
 
