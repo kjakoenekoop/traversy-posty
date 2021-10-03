@@ -15,7 +15,7 @@
             <a href="" class="p-3">Home</a>
         </li>
         <li>
-            <a href="" class="p-3">Dashboard</a>
+            <a href="{{ route('dashboard') }}" class="p-3">Dashboard</a>
         </li>
         <li>
             <a href="" class="p-3">Post</a>
@@ -25,10 +25,13 @@
 
         @auth
             <li>
-                <a href="" class="p-3">Koen</a>
+                <a href="" class="p-3">{{ auth()->user()->name }}</a>
             </li>
             <li>
-                <a href="" class="p-3">Logout</a>
+                <form action=" {{route('logout') }}" class="inline p-3" method="post">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
             </li>
         @endauth
 
